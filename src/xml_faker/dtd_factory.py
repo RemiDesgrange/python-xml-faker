@@ -1,10 +1,15 @@
+from __future__ import annotations
+
 from io import BytesIO
 from pathlib import Path
 from random import Random
-from typing import Any, Self
+from typing import TYPE_CHECKING, Any, Self
 
 from faker import Faker
 from lxml import etree
+
+if TYPE_CHECKING:
+    from lxml.etree import _DTDAttributeDecl, _DTDElementContent, _DTDElementDecl
 
 
 class DTDFactory:
@@ -54,7 +59,7 @@ class DTDFactory:
             elements.append(elem.name)
         return elements
 
-    def _find_element_by_name(self, name: str) -> etree._DTDElementDecl | None:
+    def _find_element_by_name(self, name: str) -> _DTDElementDecl | None:
         dtd = self._load_dtd()
         for elem in dtd.iterelements():
             if elem.name == name:
@@ -69,7 +74,7 @@ class DTDFactory:
         return self._faker.sentence()
 
     def _generate_attribute_value(
-        self, attr: etree._DTDAttributeDecl, values: dict[str, Any] | None, path: str
+        self, attr: _DTDAttributeDecl, values: dict[str, Any] | None, path: str
     ) -> str | None:
         """Generate a value for an attribute based on its declaration."""
         attr_path = f"{path}/@{attr.name}"
@@ -103,7 +108,7 @@ class DTDFactory:
     def _build_attributes(
         self,
         element: etree._Element,
-        element_decl: etree._DTDElementDecl,
+        element_decl: _DTDElementDecl,
         values: dict[str, Any] | None,
         optional_probability: float,
         path: str,
@@ -195,7 +200,7 @@ class DTDFactory:
     def _build_content(
         self,
         parent: etree._Element,
-        content: etree._DTDElementContent,
+        content: _DTDElementContent,
         values: dict[str, Any] | None,
         optional_probability: float,
         max_occurs: int,
@@ -245,7 +250,7 @@ class DTDFactory:
     def _build_sequence_content(
         self,
         parent: etree._Element,
-        content: etree._DTDElementContent,
+        content: _DTDElementContent,
         values: dict[str, Any] | None,
         optional_probability: float,
         max_occurs: int,
@@ -281,7 +286,7 @@ class DTDFactory:
     def _build_choice_content(
         self,
         parent: etree._Element,
-        content: etree._DTDElementContent,
+        content: _DTDElementContent,
         values: dict[str, Any] | None,
         optional_probability: float,
         max_occurs: int,
@@ -310,10 +315,10 @@ class DTDFactory:
                 )
 
     def _collect_choices(
-        self, content: etree._DTDElementContent
-    ) -> list[etree._DTDElementContent]:
+        self, content: _DTDElementContent
+    ) -> list[_DTDElementContent]:
         """Recursively collect all choices from an 'or' content model."""
-        choices: list[etree._DTDElementContent] = []
+        choices: list[_DTDElementContent] = []
 
         if content.type == "or":
             if content.left is not None:
@@ -335,7 +340,7 @@ class DTDFactory:
     def _build_content_part(
         self,
         parent: etree._Element,
-        content: etree._DTDElementContent,
+        content: _DTDElementContent,
         values: dict[str, Any] | None,
         optional_probability: float,
         max_occurs: int,

@@ -1,7 +1,7 @@
 [project]
 name = "xml-faker"
 version = "0.1.0"
-description = "Add your description here"
+description = "Generate xml valid file from XSD or DTD definiton files."
 readme = "README.md"
 authors = [
     { name = "Rémi Desgrange", email = "remi.desgrange@ielo.net" }
@@ -29,6 +29,7 @@ dev = [
     "hypothesis>=6.151.4",
     "lxml-stubs>=0.5.1",
     "pytest>=9.0.2",
+    "pytest-run-parallel>=0.4.1",
     "ruff>=0.14.14",
     "ty>=0.0.14",
 ]
