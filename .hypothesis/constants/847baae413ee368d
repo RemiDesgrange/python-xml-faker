@@ -1,0 +1,4 @@
+# file: /Users/remi/Documents/perso/python-xml-faker/src/xml_faker/__init__.py
+# hypothesis_version: 6.151.4
+
+['DTDFactory', 'XMLFactory']

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Simple type with enumeration -->
+  <xs:simpleType name="StatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="active"/>
+      <xs:enumeration value="inactive"/>
+      <xs:enumeration value="pending"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Simple type with numeric constraints -->
+  <xs:simpleType name="AgeType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="150"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Complex type with sequence -->
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element name="street" type="xs:string"/>
+      <xs:element name="city" type="xs:string"/>
+      <xs:element name="country" type="xs:string"/>
+      <xs:element name="zipCode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Root element with choice -->
+  <xs:element name="company">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string"/>
+        <xs:element name="employees">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="employee" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="firstName" type="xs:string"/>
+                    <xs:element name="lastName" type="xs:string"/>
+                    <xs:element name="age" type="AgeType"/>
+                    <xs:element name="status" type="StatusType"/>
+                    <xs:element name="address" type="AddressType" minOccurs="0"/>
+                    <xs:choice>
+                      <xs:element name="salary" type="xs:decimal"/>
+                      <xs:element name="hourlyRate" type="xs:decimal"/>
+                    </xs:choice>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:string" use="required"/>
+                  <xs:attribute name="department" type="xs:string"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="founded" type="xs:gYear"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

@@ -1,0 +1,16 @@
+<!ELEMENT company (department+)>
+<!ATTLIST company name CDATA #REQUIRED>
+<!ATTLIST company founded CDATA #IMPLIED>
+
+<!ELEMENT department (manager, employee*)>
+<!ATTLIST department id ID #REQUIRED>
+<!ATTLIST department type (engineering | sales | marketing | hr) "engineering">
+
+<!ELEMENT manager (name, title)>
+<!ELEMENT employee (name, title, (salary | hourlyRate))>
+<!ATTLIST employee status (active | inactive | contractor) #REQUIRED>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT salary (#PCDATA)>
+<!ELEMENT hourlyRate (#PCDATA)>

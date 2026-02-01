@@ -1,0 +1,4 @@
+# file: /Users/remi/Documents/perso/python-xml-faker/src/xml_faker/dtd_factory.py
+# hypothesis_version: 6.151.4
+
+[0.5, 'cdata', 'element', 'entities', 'entity', 'enumeration', 'fixed', 'id', 'idref', 'idrefs', 'implied', 'mult', 'nmtoken', 'nmtokens', 'opt', 'or', 'pcdata', 'plus', 'required', 'seq']

@@ -1,0 +1,4 @@
+# file: /Users/remi/Documents/perso/python-xml-faker/.venv/bin/pytest
+# hypothesis_version: 6.151.4
+
+['-script.pyw', '.exe', '__main__']

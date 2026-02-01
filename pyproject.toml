@@ -1,0 +1,34 @@
+[project]
+name = "xml-faker"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Rémi Desgrange", email = "remi.desgrange@ielo.net" }
+]
+requires-python = ">=3.12"
+keywords = [
+    "xml",
+    "faker",
+    "fake-data",
+    "testing",
+    "test-data",
+    "data-generation",
+]
+dependencies = [
+    "faker>=40.1.2",
+    "lxml>=6.0.2",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.26,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "hypothesis>=6.151.4",
+    "lxml-stubs>=0.5.1",
+    "pytest>=9.0.2",
+    "ruff>=0.14.14",
+    "ty>=0.0.14",
+]

@@ -1,0 +1,4 @@
+# file: /Users/remi/Documents/perso/python-xml-faker/src/xml_faker/factory.py
+# hypothesis_version: 6.151.4
+
+[0.5, -1000, -128, 127, 255, 1000, 65535, 1000000, '-1000', '1', '10', '1000', '20', ':', 'ENTITY', 'ID', 'IDREF', 'NCName', 'NMTOKEN', 'NOTATION', 'Name', 'QName', 'UTF-8', '^^^^^^^^^^^^', 'anyElement', 'anyURI', 'base', 'base64Binary', 'boolean', 'byte', 'complexType', 'date', 'dateTime', 'decimal', 'double', 'duration', 'false', 'float', 'gDay', 'gMonth', 'gMonthDay', 'gYear', 'gYearMonth', 'hexBinary', 'int', 'integer', 'itemType', 'language', 'long', 'maxOccurs', 'memberTypes', 'minOccurs', 'name', 'negativeInteger', 'nonNegativeInteger', 'normalizedString', 'optional', 'positiveInteger', 'ref', 'required', 'short', 'simpleType', 'string', 'targetNamespace', 'time', 'token', 'true', 'type', 'unbounded', 'unsignedByte', 'unsignedInt', 'unsignedLong', 'unsignedShort', 'use', 'value', 'xs', 'xs:string', '{%s}']

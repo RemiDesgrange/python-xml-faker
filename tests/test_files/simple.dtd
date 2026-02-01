@@ -1,0 +1,5 @@
+<!ELEMENT person (name, age, email?)>
+<!ATTLIST person id ID #REQUIRED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
